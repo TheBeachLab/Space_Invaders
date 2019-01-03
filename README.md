@@ -21,17 +21,13 @@ the alien invasion is successful and the game ends. A special "mystery ship" wil
 screen and award bonus points if destroyed. The ship is partially protected by several stationary defense bunkers that are
 gradually destroyed by projectiles from the aliens and player.
 
-<img src="http://i.imgur.com/u2mss8o.png" width="360" height="300" />
-<img src="http://i.imgur.com/mR81p5O.png" width="360" height="300"/>
+![](./screenshots/game.png)
 
 How To Play
 ----
- - If you don't have [Python](https://www.python.org/downloads/) or [Pygame](http://www.pygame.org/download.shtml) installed, you can simply double click the .exe file to play the game.
-   **Note:** *The .exe file needs to stay in the same directory as the sounds, images, and font folders.*
-   
- - If you have the correct version of Python and Pygame installed, you can run the program in the command prompt / terminal.
+Install Python and Pygame, and run the program in the command prompt / terminal.
  ``` bash
-cd SpaceInvaders
+cd Space_Invaders
 python spaceinvaders.py
  ```
  **Note:** If you're using Python 3, replace the command "python" with "python3"
@@ -47,7 +43,4 @@ Notable Forks
 
 Contact
 ----
-Thanks for checking out my game and I hope you enjoy it! Feel free to contact me.
-
-- Lee Robinson
-- lrobinson2011@gmail.com
+Forked from the original work of [Lee Robinson](mailto:lrobinson2011@gmail.com)

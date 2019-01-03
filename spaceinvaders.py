@@ -20,6 +20,7 @@ YELLOW = (241, 255, 0)
 BLUE = (80, 255, 239)
 PURPLE = (203, 0, 255)
 RED = (237, 28, 36)
+BLACK = (0,0,0)
 
 SCREEN = display.set_mode((800, 600))
 FONT = FONT_PATH + 'space_invaders.ttf'
@@ -321,7 +322,8 @@ class SpaceInvaders(object):
         init()
         self.caption = display.set_caption('Space Invaders')
         self.screen = SCREEN
-        self.background = image.load(IMAGE_PATH + 'background.jpg').convert()
+        #self.background = SCREEN.fill(BLACK)
+        self.background = image.load(IMAGE_PATH + 'background2.jpg').convert()
         self.startGame = False
         self.mainScreen = True
         self.gameOver = False

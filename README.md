@@ -10,6 +10,13 @@ Space Invaders
 
 About
 -----
+I'm trying to replicate the exact original videogame as shown here:
+
+[![Space Invaders](http://img.youtube.com/vi/b5LZyAjcqQs/0.jpg)](https://www.youtube.com/watch?v=b5LZyAjcqQs)
+
+I started by forking the original work of [Lee Robinson](mailto:lrobinson2011@gmail.com)
+
+
 Space Invaders is a two-dimensional fixed shooter game in which the player controls a ship with lasers by moving it horizontally
 across the bottom of the screen and firing at descending aliens. The aim is to defeat five rows of ten aliens that move
 horizontally back and forth across the screen as they advance towards the bottom of the screen. The player defeats an alien,
@@ -31,16 +38,3 @@ cd Space_Invaders
 python spaceinvaders.py
  ```
  **Note:** If you're using Python 3, replace the command "python" with "python3"
-
-Demo
-----
-[![Space Invaders](http://img.youtube.com/vi/_2yUP3WMDRc/0.jpg)](http://www.youtube.com/watch?v=_2yUP3WMDRc)
-
-Notable Forks
-----
-- [AI research project where four types of agents control the ship and play the game](https://github.com/scott-pickthorn/Space_Invaders)
-- [NEAT program that evolves to beat the game](https://github.com/lairsonm/neat-in-space-invaders)
-
-Contact
-----
-Forked from the original work of [Lee Robinson](mailto:lrobinson2011@gmail.com)

@@ -20,10 +20,13 @@ YELLOW = (241, 255, 0)
 BLUE = (80, 255, 239)
 PURPLE = (203, 0, 255)
 RED = (237, 28, 36)
-BLACK = (0,0,0)
+BLACK = (0, 0, 0)
 
-SCREEN = display.set_mode((800, 600))
-FONT = FONT_PATH + 'space_invaders.ttf'
+width = 800
+height = 600
+
+SCREEN = display.set_mode((width, height))
+FONT = FONT_PATH + 'ARCADE_N.TTF'
 IMG_NAMES = ['ship', 'mystery',
              'enemy1_1', 'enemy1_2',
              'enemy2_1', 'enemy2_2',
@@ -62,7 +65,7 @@ class Bullet(sprite.Sprite):
     def update(self, keys, *args):
         game.screen.blit(self.image, self.rect)
         self.rect.y += self.speed * self.direction
-        if self.rect.y < 15 or self.rect.y > 600:
+        if self.rect.y < 15 or self.rect.y > height:
             self.kill()
 
 
@@ -221,7 +224,7 @@ class Mystery(sprite.Sprite):
         resetTimer = False
         passed = currentTime - self.timer
         if passed > self.moveTime:
-            if (self.rect.x < 0 or self.rect.x > 800) and self.playSound:
+            if (self.rect.x < 0 or self.rect.x > width) and self.playSound:
                 self.mysteryEntered.play()
                 self.playSound = False
             if self.rect.x < 840 and self.direction == 1:
@@ -417,17 +420,18 @@ class SpaceInvaders(object):
             self.noteTimer += moveTime
 
     def create_text(self):
-        self.titleText = Text(FONT, 50, 'Space Invaders', WHITE, 164, 155)
+        self.titleText = Text(FONT, 25, 'Space Invaders', WHITE, 164, 155)
         self.titleText2 = Text(FONT, 25, 'Press any key to continue', WHITE,
-                               201, 225)
-        self.gameOverText = Text(FONT, 50, 'Game Over', WHITE, 250, 270)
-        self.nextRoundText = Text(FONT, 50, 'Next Round', WHITE, 240, 270)
-        self.enemy1Text = Text(FONT, 25, '   =   10 pts', GREEN, 368, 270)
-        self.enemy2Text = Text(FONT, 25, '   =  20 pts', BLUE, 368, 320)
-        self.enemy3Text = Text(FONT, 25, '   =  30 pts', PURPLE, 368, 370)
+                               164, 225)
+        self.gameOverText = Text(FONT, 25, 'Game Over', WHITE, 250, 270)
+        self.nextRoundText = Text(FONT, 25, 'Next Round', WHITE, 240, 270)
+        self.enemy1Text = Text(FONT, 25, '   =  10 points', GREEN, 368, 270)
+        self.enemy2Text = Text(FONT, 25, '   =  20 points', BLUE, 368, 320)
+        self.enemy3Text = Text(FONT, 25, '   =  30 points', PURPLE, 368, 370)
         self.enemy4Text = Text(FONT, 25, '   =  ?????', RED, 368, 420)
-        self.scoreText = Text(FONT, 20, 'Score', WHITE, 5, 5)
-        self.livesText = Text(FONT, 20, 'Lives ', WHITE, 640, 5)
+        self.scoreText = Text(FONT, 25, 'PLAYER<1>', YELLOW, 5, 5)
+        self.scoreTop = Text(FONT, 25, 'HI-SCORE', (0, 0, 255), width/2-75, 5)
+        self.livesText = Text(FONT, 25, 'Lives ', WHITE, width-215, 5)
 
     @staticmethod
     def should_exit(evt):
@@ -655,9 +659,10 @@ class SpaceInvaders(object):
                     currentTime = time.get_ticks()
                     if currentTime - self.gameTimer < 3000:
                         self.screen.blit(self.background, (0, 0))
-                        self.scoreText2 = Text(FONT, 20, str(self.score),
-                                               GREEN, 85, 5)
+                        self.scoreText2 = Text(FONT, 25, str("%06d" % self.score),
+                                               WHITE, 5, 32)
                         self.scoreText.draw(self.screen)
+                        self.scoreTop.draw(self.screen)
                         self.scoreText2.draw(self.screen)
                         self.nextRoundText.draw(self.screen)
                         self.livesText.draw(self.screen)
@@ -673,9 +678,10 @@ class SpaceInvaders(object):
                     self.play_main_music(currentTime)
                     self.screen.blit(self.background, (0, 0))
                     self.allBlockers.update(self.screen)
-                    self.scoreText2 = Text(FONT, 20, str(self.score), GREEN,
-                                           85, 5)
+                    self.scoreText2 = Text(FONT, 25, str("%06d" % self.score), WHITE,
+                                           5, 32)
                     self.scoreText.draw(self.screen)
+                    self.scoreTop.draw(self.screen)
                     self.scoreText2.draw(self.screen)
                     self.livesText.draw(self.screen)
                     self.check_input()

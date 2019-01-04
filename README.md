@@ -34,7 +34,7 @@ How To Play
 ----
 Install Python and Pygame, and run the program in the command prompt / terminal.
  ``` bash
-cd Space_Invaders
+cd space-invaders
 python spaceinvaders.py
  ```
  **Note:** If you're using Python 3, replace the command "python" with "python3"
